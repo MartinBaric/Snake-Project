@@ -62,7 +62,12 @@ void Resize_Snake(RectangleShape* snake, VertexArray* Snake_pos, int new_size,in
 int main()
 {
     RenderWindow window(VideoMode(SIZE_X, SIZE_Y), "Snake Game",Style::Close);
-
+    Texture texture;
+    texture.loadFromFile("Desert_1.png");
+    Sprite sprite;
+    Vector2u size = texture.getSize();
+    sprite.setTexture(texture);  //This is where you add an & to designate texture as a pointer
+    sprite.setOrigin(size.x / 2, size.y / 2);
     bool Loose = false;
     int current_snake_size = 5;
     VertexArray Snake_pos(Points,MAX_SNAKE_SIZE);
@@ -126,6 +131,7 @@ int main()
                 Snake_Food.setPosition(Random_Rec[0],Random_Rec[1]);
             } 
             window.clear();
+            window.draw(sprite);
             draw_snake(&snake[0],Snake_pos,current_snake_size);
             for (int i = 0;i < current_snake_size;i++)
             {   
