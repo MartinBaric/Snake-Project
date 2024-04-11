@@ -54,7 +54,7 @@ void move_snake(RectangleShape* snake, VertexArray* Snake_pos, const char* direc
 
 void Resize_Snake(RectangleShape* snake, VertexArray* Snake_pos, int new_size, int new_snake_end[2])
 {
-    Snake_pos[0][new_size-1].position = { new_snake_end[0], new_snake_end[1]};
+    Snake_pos[0][new_size-1].position = { float(new_snake_end[0]), float(new_snake_end[1])};
     snake[new_size-1].setPosition(Snake_pos[0][new_size-1].position.x, Snake_pos[0][new_size-1].position.y);
 }
 
